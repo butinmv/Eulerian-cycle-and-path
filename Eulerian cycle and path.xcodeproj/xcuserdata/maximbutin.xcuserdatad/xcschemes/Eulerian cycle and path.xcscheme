@@ -5,6 +5,22 @@
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES">
+      <BuildActionEntries>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "A2477E291F725AC700B91781"
+               BuildableName = "Eulerian cycle and path.app"
+               BlueprintName = "Eulerian cycle and path"
+               ReferencedContainer = "container:Eulerian cycle and path.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+      </BuildActionEntries>
    </BuildAction>
    <TestAction
       buildConfiguration = "Debug"
@@ -13,6 +29,15 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "A2477E291F725AC700B91781"
+            BuildableName = "Eulerian cycle and path.app"
+            BlueprintName = "Eulerian cycle and path"
+            ReferencedContainer = "container:Eulerian cycle and path.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -21,11 +46,22 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
-      useCustomWorkingDirectory = "NO"
+      useCustomWorkingDirectory = "YES"
+      customWorkingDirectory = "/Users/maximbutin/Documents/Documents/&#x41f;&#x440;&#x435;&#x434;&#x43c;&#x435;&#x442;&#x44b;/&#x410;&#x43b;&#x433;&#x43e;&#x440;&#x438;&#x442;&#x43c;&#x44b; &#x438; &#x441;&#x442;&#x440;&#x443;&#x43a;&#x442;&#x443;&#x440;&#x44b; &#x434;&#x430;&#x43d;&#x43d;&#x44b;&#x445;/IV &#x441;&#x435;&#x43c;&#x435;&#x441;&#x442;&#x440;/&#x41b;&#x430;&#x431;&#x43e;&#x440;&#x430;&#x442;&#x43e;&#x440;&#x43d;&#x430;&#x44f; &#x440;&#x430;&#x431;&#x43e;&#x442;&#x430;&#x2116;3 (&#x42d;&#x438;&#x306;&#x43b;&#x435;&#x440;&#x43e;&#x432; &#x446;&#x438;&#x43a;&#x43b; &#x438; &#x43f;&#x443;&#x442;&#x44c; &#x432; &#x433;&#x440;&#x430;&#x444;&#x435;)/Eulerian cycle and path/Eulerian cycle and path"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "A2477E291F725AC700B91781"
+            BuildableName = "Eulerian cycle and path.app"
+            BlueprintName = "Eulerian cycle and path"
+            ReferencedContainer = "container:Eulerian cycle and path.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -35,6 +71,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "A2477E291F725AC700B91781"
+            BuildableName = "Eulerian cycle and path.app"
+            BlueprintName = "Eulerian cycle and path"
+            ReferencedContainer = "container:Eulerian cycle and path.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

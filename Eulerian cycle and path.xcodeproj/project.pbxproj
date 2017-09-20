@@ -7,24 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A2477E301F725AC700B91781 /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = A2477E2F1F725AC700B91781 /* ResourcePath.mm */; };
+		A2011D781F727AC200E166EC /* myImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A2011D761F727AC200E166EC /* myImage.cpp */; };
+		A2011D7C1F727B4700E166EC /* myCircleShape.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A2011D7A1F727B4700E166EC /* myCircleShape.cpp */; };
 		A2477E331F725AC700B91781 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A2477E321F725AC700B91781 /* main.cpp */; };
-		A2477E361F725AC700B91781 /* cute_image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A2477E351F725AC700B91781 /* cute_image.jpg */; };
-		A2477E381F725AC700B91781 /* nice_music.ogg in Resources */ = {isa = PBXBuildFile; fileRef = A2477E371F725AC700B91781 /* nice_music.ogg */; };
-		A2477E3A1F725AC700B91781 /* sansation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A2477E391F725AC700B91781 /* sansation.ttf */; };
-		A2477E3C1F725AC700B91781 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A2477E3B1F725AC700B91781 /* icon.png */; };
+		A2477E471F725BEB00B91781 /* img in Resources */ = {isa = PBXBuildFile; fileRef = A2477E461F725BEB00B91781 /* img */; };
+		A2477E491F725C0300B91781 /* font in Resources */ = {isa = PBXBuildFile; fileRef = A2477E481F725C0300B91781 /* font */; };
+		A2477E4B1F725C1400B91781 /* music in Resources */ = {isa = PBXBuildFile; fileRef = A2477E4A1F725C1400B91781 /* music */; };
+		A2477E521F725DA300B91781 /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = A2477E511F725DA300B91781 /* ResourcePath.mm */; };
+		A2F1440A1F72745C00A43710 /* libs in Resources */ = {isa = PBXBuildFile; fileRef = A2F144091F72745C00A43710 /* libs */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A2011D761F727AC200E166EC /* myImage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = myImage.cpp; sourceTree = "<group>"; };
+		A2011D771F727AC200E166EC /* myImage.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = myImage.hpp; sourceTree = "<group>"; };
+		A2011D7A1F727B4700E166EC /* myCircleShape.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = myCircleShape.cpp; sourceTree = "<group>"; };
+		A2011D7B1F727B4700E166EC /* myCircleShape.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = myCircleShape.hpp; sourceTree = "<group>"; };
 		A2477E2A1F725AC700B91781 /* Eulerian cycle and path.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Eulerian cycle and path.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2477E2E1F725AC700B91781 /* Eulerian cycle and path-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Eulerian cycle and path-Info.plist"; sourceTree = "<group>"; };
-		A2477E2F1F725AC700B91781 /* ResourcePath.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ResourcePath.mm; sourceTree = "<group>"; };
-		A2477E311F725AC700B91781 /* ResourcePath.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ResourcePath.hpp; sourceTree = "<group>"; };
 		A2477E321F725AC700B91781 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		A2477E351F725AC700B91781 /* cute_image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cute_image.jpg; sourceTree = "<group>"; };
-		A2477E371F725AC700B91781 /* nice_music.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; path = nice_music.ogg; sourceTree = "<group>"; };
-		A2477E391F725AC700B91781 /* sansation.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sansation.ttf; sourceTree = "<group>"; };
-		A2477E3B1F725AC700B91781 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		A2477E461F725BEB00B91781 /* img */ = {isa = PBXFileReference; lastKnownFileType = folder; path = img; sourceTree = "<group>"; };
+		A2477E481F725C0300B91781 /* font */ = {isa = PBXFileReference; lastKnownFileType = folder; path = font; sourceTree = "<group>"; };
+		A2477E4A1F725C1400B91781 /* music */ = {isa = PBXFileReference; lastKnownFileType = folder; path = music; sourceTree = "<group>"; };
+		A2477E501F725DA300B91781 /* ResourcePath.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ResourcePath.hpp; sourceTree = "<group>"; };
+		A2477E511F725DA300B91781 /* ResourcePath.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ResourcePath.mm; sourceTree = "<group>"; };
+		A2F144091F72745C00A43710 /* libs */ = {isa = PBXFileReference; lastKnownFileType = folder; path = libs; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +44,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A2011D791F727B1200E166EC /* myImageClass */ = {
+			isa = PBXGroup;
+			children = (
+				A2011D761F727AC200E166EC /* myImage.cpp */,
+				A2011D771F727AC200E166EC /* myImage.hpp */,
+			);
+			name = myImageClass;
+			sourceTree = "<group>";
+		};
+		A2011D7D1F72834500E166EC /* myCircleShapeClass */ = {
+			isa = PBXGroup;
+			children = (
+				A2011D7A1F727B4700E166EC /* myCircleShape.cpp */,
+				A2011D7B1F727B4700E166EC /* myCircleShape.hpp */,
+			);
+			name = myCircleShapeClass;
+			sourceTree = "<group>";
+		};
 		A2477E201F725AC700B91781 = {
 			isa = PBXGroup;
 			children = (
@@ -57,9 +81,12 @@
 		A2477E2C1F725AC700B91781 /* Eulerian cycle and path */ = {
 			isa = PBXGroup;
 			children = (
-				A2477E2F1F725AC700B91781 /* ResourcePath.mm */,
-				A2477E311F725AC700B91781 /* ResourcePath.hpp */,
+				A2011D791F727B1200E166EC /* myImageClass */,
+				A2011D7D1F72834500E166EC /* myCircleShapeClass */,
 				A2477E321F725AC700B91781 /* main.cpp */,
+				A2477E501F725DA300B91781 /* ResourcePath.hpp */,
+				A2477E511F725DA300B91781 /* ResourcePath.mm */,
+				A2F144091F72745C00A43710 /* libs */,
 				A2477E341F725AC700B91781 /* Resources */,
 				A2477E2D1F725AC700B91781 /* Supporting Files */,
 			);
@@ -77,10 +104,9 @@
 		A2477E341F725AC700B91781 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				A2477E351F725AC700B91781 /* cute_image.jpg */,
-				A2477E371F725AC700B91781 /* nice_music.ogg */,
-				A2477E391F725AC700B91781 /* sansation.ttf */,
-				A2477E3B1F725AC700B91781 /* icon.png */,
+				A2477E4A1F725C1400B91781 /* music */,
+				A2477E481F725C0300B91781 /* font */,
+				A2477E461F725BEB00B91781 /* img */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -143,10 +169,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A2477E3C1F725AC700B91781 /* icon.png in Resources */,
-				A2477E3A1F725AC700B91781 /* sansation.ttf in Resources */,
-				A2477E381F725AC700B91781 /* nice_music.ogg in Resources */,
-				A2477E361F725AC700B91781 /* cute_image.jpg in Resources */,
+				A2477E4B1F725C1400B91781 /* music in Resources */,
+				A2477E471F725BEB00B91781 /* img in Resources */,
+				A2F1440A1F72745C00A43710 /* libs in Resources */,
+				A2477E491F725C0300B91781 /* font in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,8 +199,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2011D781F727AC200E166EC /* myImage.cpp in Sources */,
+				A2477E521F725DA300B91781 /* ResourcePath.mm in Sources */,
 				A2477E331F725AC700B91781 /* main.cpp in Sources */,
-				A2477E301F725AC700B91781 /* ResourcePath.mm in Sources */,
+				A2011D7C1F727B4700E166EC /* myCircleShape.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,6 +334,7 @@
 				A2477E411F725AC700B91781 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
