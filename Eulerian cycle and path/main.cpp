@@ -8,8 +8,6 @@
 #include <string>
 
 #include "ResourcePath.hpp"
-#include "libs/programmObject.hpp"
-#include "libs/button.hpp"
 #include "myImage.hpp"
 #include "myCircleShape.hpp"
 
@@ -23,12 +21,16 @@ using namespace sf;
 void readFile(string file);         // read graph from file
 void showGraph();                   // display graph on console
 void findEulerPath();               // find eulerian cycle and path
+void work();
 
 
 // GLOBAL VARIABLES
 vector <vector <int> * > graph;     // graph
+vector <vector <int> * > graph_1;   // graph
 int countVertex;                    // count of vertex
 vector<int> degree;                 // degree vector
+vector<int> res;                    // vector for result
+bool bad;
 
 
 // INTERFACE VARIABLES
@@ -37,10 +39,13 @@ Color white_255_1 = Color(255, 255, 255, 100);
 Color blue = Color(0, 255, 251);
 Color blue_1 = Color(0, 255, 251, 100);
 Color black = Color(0, 0, 0);
-Color dark_red = Color(219, 15, 70);
-Color orange = Color(255, 82, 8);
+Color circleShape_1 = Color(107, 140, 206);
+Color circleShape_2 = Color(107, 226, 214);
 vector<int> x,y;
 
+// FLAG BUTTONS
+bool isPressU = 0;
+bool isPressO = 0;
 
 int main(int, char const**)
 {
@@ -77,9 +82,14 @@ int main(int, char const**)
         return EXIT_FAILURE;
     }
     Text text("", font, 35);
-    text.setFillColor(dark_red);
+    text.setFillColor(circleShape_1);
     text.setOutlineThickness(1);
-    text.setOutlineColor(orange);
+    text.setOutlineColor(circleShape_2);
+    
+    Text textInfo("", font, 56);
+    textInfo.setFillColor(Color::Red);
+    Text textMatrix("", font, 56);
+    textMatrix.setFillColor(Color::Red);
     
     // Settings music
     Music music;
@@ -89,7 +99,7 @@ int main(int, char const**)
     }
     
     // Play the music
-    //music.play();
+    music.play();
     
     myImage lw("lw.png", 2800, 100, -3);
     myImage clan("clan.png", 3100, 250, 0);
@@ -104,24 +114,23 @@ int main(int, char const**)
     shapeWhite_3.rotateShape(-4);
     
     // Circle for vertex
-    int r = 30;
+    int r = 20;
     CircleShape shapeInCyclePath(r);
     shapeInCyclePath.setOutlineColor(Color::Red);
     shapeInCyclePath.setOutlineThickness(5);
     shapeInCyclePath.setFillColor(Color(0, 0, 0, 0));
     
     CircleShape shapeVertex(r);
-    shapeVertex.setOutlineColor(dark_red);
-    shapeVertex.setOutlineThickness(5);
-    shapeVertex.setFillColor(orange);
+    shapeVertex.setOutlineColor(circleShape_1);
+    shapeVertex.setOutlineThickness(10);
+    shapeVertex.setFillColor(circleShape_2);
 //////////////////////////////////////////////////////////////////////////////////////////////INTERFACE//////////////////////////////////////////////////////////////////////////////////////////////
     
     // MAIN PROGRAMM
     readFile("input.txt");
     showGraph();
     findEulerPath();
-    
-    
+
     while (window.isOpen())
     {
         Event event;
@@ -137,7 +146,6 @@ int main(int, char const**)
                 window.close();
             }
         }
-        
         
         // Clear screen
         window.clear();
@@ -160,53 +168,44 @@ int main(int, char const**)
         window.draw(alg.sprite);
         
         // Edge output
-        RectangleShape line;
-        line.setFillColor(orange);
-        
-        ConvexShape triangle;
-        triangle.setPointCount(3);
-        triangle.setFillColor(orange);
-        triangle.setOutlineColor(dark_red);
-        triangle.setOutlineThickness(3);
-        for (int i = 0; i < countVertex; i++)
-            for (int j = 0; j < countVertex; j++)
+        for (int i = 0; i < countVertex - 1; i++)
+            for (int j = i; j < countVertex; j++)
+                if ((*graph_1[i])[j])
+                {
+                    Vertex line[] =
+                    {
+                        Vertex(Vector2f(x[i] + r, y[i] + r), circleShape_1),
+                        Vertex(Vector2f(x[j] + r, y[j] + r), circleShape_1)
+                    };
+                    window.draw(line, 2, Lines);
+                }
+       
+        //display cycle or path
+        for (int i = 0; i < res.size() - 1; i++)
+        {
+            Vertex line[] =
             {
-                //ConvexShape *triangle = &triangleGold;
-                int a = i;
-                int b = j;
-                float h_ab, w_ab, long_ab, angle;
-                h_ab = x[a] - x[b];
-                w_ab = y[a] - y[b];
-                // гипотенуза
-                long_ab = sqrt(h_ab * h_ab + w_ab * w_ab);
-                // угол
-                angle = asin(h_ab / long_ab) / M_PI * 180;
-                if(h_ab < 0 && w_ab > 0)
-                    angle = 180 - angle;
-                if(h_ab >= 0 && w_ab >= 0)
-                    angle = 180 - angle;
-                // задаем угол
-                line.setRotation(angle);
-                // размер линии
-                line.setSize(Vector2f(1, long_ab));
-                // от куда идет линия
-                line.setPosition(Vector2f(x[a] + r, y[a] + r));
-                // треугольник
-                // определяем вершины
-                int r = 30, rr = 90, rrr = 5;
-                triangle.setPoint(0, Vector2f(x[b] + r, y[b] + r));
-                angle = angle - 90;
-                triangle.setPoint(1, Vector2f(x[b] + rr*cos((angle + rrr)*M_PI/180) +
-                                               r, y[b] +
-                                               rr*sin((angle + rrr) * M_PI/180) + r));
-                triangle.setPoint(2, Vector2f(x[b] + rr*cos((angle - rrr)*M_PI/180) +
-                                               r, y[b] +
-                                               rr*sin((angle - rrr) * M_PI/180) + r));
-                window.draw(line);
-                window.draw(triangle);
-            }
-                    
-
+                Vertex(Vector2f(x[res[i]] + r, y[res[i]] + r), Color::Red),
+                Vertex(Vector2f(x[res[i + 1]] + r, y[res[i + 1]] + r), Color::Red)
+            };
+            window.draw(line, 2, Lines);
+            
+            CircleShape tsh;
+            tsh.setFillColor(Color::Red);
+            tsh.setRadius(30);
+            tsh.setPointCount(3);
+            tsh.setOrigin(30, -25);
+            float dX = x[res[i]] - x[res[i + 1]];
+            float dY = y[res[i]] - y[res[i + 1]];
+            float rotation = (atan2(dY, dX)) * 180 / M_PI;
+            tsh.setRotation(rotation + 270);
+            tsh.setPosition(Vector2f(x[res[i + 1]] + r, y[res[i + 1]] + r));
+            string s = to_string(i + 1);
+            text.setString(s);
+            text.setPosition(((x[res[i]] + x[res[(i + 1)]]) / 2), ((y[res[i]] + y[res[(i + 1)]]) / 2));
+            window.draw(tsh);
+            window.draw(text);
+        }
         
         // Vertex output
         for (int i = 0; i < countVertex; i++)
@@ -219,7 +218,44 @@ int main(int, char const**)
             window.draw(text);
         }
         
+        // display matrix
+        string matrix;
+        string countVertexText = to_string(graph_1.size());
+        textInfo.setString("Count of vertex: " + countVertexText + "\n");
+        textInfo.setPosition(2750, 850);
+        window.draw(textInfo);
+        for (int i = 0; i < countVertex; i++)
+        {
+            for (int j = 0; j < countVertex; j++)
+            {
+                matrix = to_string((*graph_1[i])[j]);
+                textMatrix.setString(matrix);
+                textMatrix.setPosition(2750 + i * 60 , 900 + j * 60);
+                window.draw(textMatrix);
+            }
+        }
         
+        // display way or path
+        string euler = "Result: \n";
+        if (bad)
+        {
+           euler += "Incoherent graph";
+        }
+        else
+        {
+            for (int i = 0; i < res.size(); i++)
+            {
+                euler += to_string(res[i] + 1);
+                euler += "  ";
+                if (i % 12 == 0 && i != 0)
+                {
+                    euler += "\n";
+                }
+            }
+            textMatrix.setString(euler);
+            textMatrix.setPosition(2750, 1500);
+            window.draw(textMatrix);
+        }
         // Update the window
         window.display();
     }
@@ -230,10 +266,14 @@ int main(int, char const**)
 void readFile(string file)          // Read graph from file
 {
     // Clearing the vertices
-    int size = graph.size();
-    for (int i = 0; i < size; i++)
+    for (int i = 0; i < graph.size(); i++)
         graph[i]->clear();
     graph.clear();
+    
+    // Clearing the vertices
+    for (int i = 0; i < graph_1.size(); i++)
+        graph_1[i]->clear();
+    graph_1.clear();
     
     countVertex = 0;                                   // count of vertex
     ifstream inputFile(file);
@@ -244,8 +284,9 @@ void readFile(string file)          // Read graph from file
     
     for (int i = 0; i < countVertex; i++)
     {
-        graph.push_back(new vector<int>(countVertex));  // Init graph
-        degree.push_back(0);                            // Init degree
+        graph.push_back(new vector<int>(countVertex));      // Init graph
+        graph_1.push_back(new vector<int>(countVertex));    // Init graph
+        degree.push_back(0);                                // Init degree
     }
     
     // calculation of coordinates of vertices
@@ -258,7 +299,6 @@ void readFile(string file)          // Read graph from file
         y.push_back(yy);
     }
     
-    
     // Read adjacency matrix
     char vertex;
     for (int i = 0; i < countVertex; i++)
@@ -270,6 +310,10 @@ void readFile(string file)          // Read graph from file
             else
                 (*graph[i])[j] = 0;
         }
+    
+    for (int i = 0; i < countVertex; i++)
+        for (int j = 0; j < countVertex; j++)
+            (*graph_1[i])[j] = (*graph[i])[j];
     
     // Close the file
     inputFile.close();
@@ -289,8 +333,9 @@ void findEulerPath()                // Find Eulerian cycle and path
     
     // check degree of verteces
     int v1 = -1,  v2 = -1;                      // v1 and v2 - odd vertices
-    bool bad = false;
+    bad = false;
     for (int i = 0; i < countVertex; i++)
+    {
         if (degree[i] % 2 == 1)                 // if vertices with odd degree
         {
             if (v1 == -1)                       // check v1
@@ -302,6 +347,7 @@ void findEulerPath()                // Find Eulerian cycle and path
             else                                // else vertices with odd degree are more than 2,
                 bad = true;                     // the graph doesn't have Euler cycle or Eulerian path
         }
+    }
         // if graph doesn't have vertices with odd degree,
         // graph has only Euler cycle
     
@@ -311,9 +357,9 @@ void findEulerPath()                // Find Eulerian cycle and path
     {
         ++(*graph[v1])[v2];
         ++(*graph[v2])[v1];
+        
     }
-    
-    vector<int> res;                            // vector for result
+
     stack<int> st;                              // stack for working
     st.push (first);                            // push start vertex
     while (!st.empty())                         // while stack isn't empty
@@ -361,8 +407,6 @@ void findEulerPath()                // Find Eulerian cycle and path
     else
         for (int i = 0; i < res.size(); i++)
             cout << res[i] + 1 << " ";
-    
-   
 }
 
 void showGraph()                    // Display graph on console
